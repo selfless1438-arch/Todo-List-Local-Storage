@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo - List </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicion.png" type="image/x-icon">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <main>
+        <div class="mode-cont">
+            <div class="icon-cont" onclick="toggleMode()">
+                <div class="icon">
+                    <i data-lucide="sun"></i>
+                    <i data-lucide="moon"></i>
+                </div>
+            </div>
+            <span class="shortcut">Shortkey ALT+M</span>
+        </div>
+        <div class="todo-cont">
+            <div class="todo-add">
+                <h1>Your To Do</h1>
+                <div class="input-cont">
+                    <input type="text" placeholder="Add new task" id="addTaskInput" name="addTaskInput">
+                    <div class="icon" onclick="addNewTask()">
+                        <i data-lucide="plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="tasks-list" id="tasks-list">
+                <!-- here will be tasks  -->
+            </div>
+            <div class="counter-cont">
+                <i>Your remaining todos: <span id="counter">0</span></i>
+            </div>
+        </div>
+    </main>
+    <!-- Alert modal -->
+    <div class="modal" id="emptyAlertModal">
+        <div class="modal-dialogue">
+            <div class="title">
+                <h3>Warning</h3>
+                <i onclick="closeAlert()" data-lucide="x"></i>
+            </div>
+            <p class="desc">Please enter a task before adding.</p>
+        </div>
+    </div>
+    <!-- audio contanine -->
+    <audio id="notitone" src="notification.mp3"></audio>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

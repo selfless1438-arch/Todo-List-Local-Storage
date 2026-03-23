@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4F4F4F;
+    --secondary-color: #9F9F9F;
+    --third-color: #9CA3AF;
+}
+
+main input::selection {
+    background-color: #000;
+    color: #fff;
+}
+
+main.dark input::selection {
+    background-color: gold;
+    color: #000;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+main.dark {
+    background-color: #131519;
+}
+
+main .todo-cont {
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+    padding: 30px;
+}
+
+main .todo-cont .todo-add {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+main .todo-cont .todo-add h1 {
+    color: var(--primary-color);
+}
+
+main.dark .todo-cont .todo-add h1 {
+    color: #fff;
+}
+
+main .todo-cont .todo-add .input-cont {
+    display: grid;
+    grid-template-columns: calc(100% - 60px) 1fr;
+    gap: 20px;
+}
+
+main .todo-cont .todo-add .input-cont input::placeholder {
+    color: var(--third-color);
+}
+
+main .todo-cont .todo-add .input-cont input {
+    border: none;
+    padding: 10px;
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    border-bottom: 2px solid var(--secondary-color);
+    font-weight: 600;
+}
+
+main.dark .todo-cont .todo-add .input-cont input {
+    color: var(--third-color) !important;
+
+}
+
+main .todo-cont .todo-add .input-cont .icon {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+/* task's list */
+
+.tasks-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.tasks-list .task {
+    border: 1px solid var(--secondary-color);
+    border-radius: 15px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 20px 1fr 30px;
+    gap: 10px;
+    align-items: center;
+}
+
+.tasks-list .task input {
+    accent-color: gold;
+    width: 20px;
+    height: 20px;
+}
+
+
+.tasks-list .task .task-title {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+main.dark .tasks-list .task .task-title {
+    color: #fff;
+}
+
+.tasks-list .task .icon {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.tasks-list .task.done .task-title {
+    text-decoration: line-through;
+    color: var(--third-color);
+}
+
+main.dark .tasks-list .task.done .task-title {
+    color: var(--primary-color);
+}
+
+.tasks-list .task .icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.counter-cont i {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+main.dark .counter-cont i {
+    color: var(--secondary-color);
+}
+
+/* alert modla styling */
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    width: 100%;
+    pointer-events: none;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s linear;
+}
+
+.modal.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal .modal-dialogue {
+    background-color: #fff;
+    max-width: 430px;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    margin: 20px;
+}
+
+.modal .modal-dialogue .title {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal .modal-dialogue .title svg {
+    cursor: pointer;
+}
+
+.modal .modal-dialogue .desc {
+    color: var(--primary-color);
+}
+
+
+/* Dark Theme  */
+
+main .mode-cont {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+main .mode-cont .shortcut {
+    color: var(--primary-color);
+
+}
+
+main.dark .mode-cont .shortcut {
+    color: gold;
+}
+
+@media (max-width : 790) {
+    main .mode-cont .shortcut {
+        display: none;
+    }
+}
+
+main .mode-cont .icon-cont {
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+    width: 74px;
+    height: 34px;
+    position: relative;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 34px;
+    background-color: var(--primary-color);
+
+}
+
+main .mode-cont .icon-cont .icon {
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    border-radius: 50%;
+    color: var(--primary-color);
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+main .mode-cont .icon-cont .icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+main .mode-cont .icon-cont .icon svg:last-child {
+    display: none;
+}
+
+main.dark .mode-cont .icon-cont .icon svg:first-child {
+    display: none;
+}
+
+main.dark .mode-cont .icon-cont .icon svg:last-child {
+    display: inline-block;
+}
+
+main.dark .mode-cont .icon-cont .icon {
+    transform: translateX(39px);
+}
+
+main.dark .mode-cont .icon-cont {
+    border-color: gold;
+    background-color: gold;
+    box-shadow: 0 0 5px gold;
+}
+
+main.dark .mode-cont .icon-cont .icon {
+    background-color: #131519;
+    color: gold;
+}
+
+main.dark .mode-cont .icon-cont .icon {
+    transform: translateX(39px);
+}
+
+main.dark .mode-cont .icon-cont {
+    border-color: gold;
+    background-color: gold;
+    box-shadow: 0 0 5px gold;
+}
