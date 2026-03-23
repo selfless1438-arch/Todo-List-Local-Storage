@@ -8,6 +8,7 @@ This app allows users to manage daily tasks with data stored in **LocalStorage**
 ## 🚀 Features
 
 - ✅ Add new tasks  
+- 🌗 Dark & Light with shortcut key.  
 - 🗑️ Delete tasks  
 - ✔️ Mark tasks as completed  
 - 💾 Persistent storage using LocalStorage   
